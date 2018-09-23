@@ -1,0 +1,19 @@
+{
+  "name": "ts-simple",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app/main.js",
+  "scripts": {
+    "start": "tsc -w",
+    "build": "tsc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "Apache 2.0",
+  "dependencies": {
+    "@types/arcgis-js-api": "^4.8.1"
+  },
+  "devDependencies": {
+    "typescript": "^3.0.1"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "module": "amd",
+    "target": "es5",
+    "esModuleInterop": true,
+    "lib": ["dom", "es2015.promise", "es5"],
+    "sourceMap": true,
+    "noImplicitAny": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "jsx": "react",
+    "jsxFactory": "tsx",
+    "experimentalDecorators": true
+  },
+  "include": [
+    "app/*"
+  ]
+}
+

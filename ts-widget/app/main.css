@@ -1,0 +1,12 @@
+@import url("https://jsdev.arcgis.com/4.9/esri/css/main.css");
+
+.query-widget {
+  padding: 2em;
+  text-align: center;
+}
+
+.query-widget-label {
+  line-height: 1em;
+  font-size: 5em;
+  padding: 0.2em;
+}

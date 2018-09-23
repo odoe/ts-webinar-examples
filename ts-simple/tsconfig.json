@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "module": "amd",
+    "target": "es5",
+    "esModuleInterop": true,
+    "sourceMap": true,
+    "noImplicitAny": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "jsx": "react",
+    "jsxFactory": "tsx",
+    "experimentalDecorators": true,
+    "preserveConstEnums": true
+  },
+  "include": [
+    "app/*"
+  ]
+}
+
