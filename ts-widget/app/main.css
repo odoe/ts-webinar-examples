@@ -6,6 +6,7 @@
 }
 
 .query-widget-label {
+  color: red;
   line-height: 1em;
   font-size: 5em;
   padding: 0.2em;
