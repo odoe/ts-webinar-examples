@@ -2,6 +2,7 @@ import esri = __esri;
 
 import Accessor from "esri/core/Accessor";
 import MapView from "esri/views/MapView";
+import StatisticDefinition from "esri/tasks/support/StatisticDefinition";
 
 import { whenOnce, whenFalseOnce } from "esri/core/watchUtils";
 
@@ -16,11 +17,11 @@ export interface StatsWidgetParams extends esri.WidgetProperties {
 }
 
 const statDefinitions = [
-  {
+  new StatisticDefinition({
     onStatisticField: "1",
     outStatisticFieldName: "total",
     statisticType: "count"
-  }
+  })
 ];
 
 @subclass("app.StatsWidgetViewModel")
@@ -75,7 +76,7 @@ class StatsWidgetViewModel extends declared(Accessor) {
     query.geometry = this.view.toMap(event);
     query.distance = 1;
     query.units = "miles";
-    query.outStatistics = statDefinitions as any;
+    query.outStatistics = statDefinitions;
 
     const response = await layerView.queryFeatures(query);
     const stats = response.features[0].attributes;
