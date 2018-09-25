@@ -3,7 +3,7 @@ import Query from "esri/tasks/support/Query";
 
 import FeatureLayerView from "esri/views/layers/FeatureLayerView";
 
-// Types
+// Use Types or Interfaces
 type SearchItem = {
   query: Query,
   id: number
@@ -14,8 +14,6 @@ type FeatureItem = {
   id: number,
   layerView: FeatureLayerView
 };
-
-// interface
 
 function runAllQueries(items: SearchItem[]) {
   const ids: number[] = [];
