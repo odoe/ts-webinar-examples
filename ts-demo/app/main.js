@@ -36,7 +36,14 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-define(["require", "exports", "esri/Graphic", "esri/Map", "esri/geometry", "esri/views/MapView", "esri/widgets/Search", "./geolocate", "./places"], function (require, exports, Graphic_1, Map_1, geometry_1, MapView_1, Search_1, geolocate_1, places_1) {
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
+    result["default"] = mod;
+    return result;
+};
+define(["require", "exports", "esri/Graphic", "esri/Map", "esri/geometry", "esri/views/MapView", "esri/widgets/Search"], function (require, exports, Graphic_1, Map_1, geometry_1, MapView_1, Search_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     Graphic_1 = __importDefault(Graphic_1);
@@ -68,16 +75,22 @@ define(["require", "exports", "esri/Graphic", "esri/Map", "esri/geometry", "esri
     ;
     function findPlaces(view) {
         return __awaiter(this, void 0, void 0, function () {
-            var position, places, features;
+            var geo, places, position, addresses, features;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, geolocate_1.deviceLocation()];
+                    case 0: return [4 /*yield*/, new Promise(function (resolve_1, reject_1) { require(["./geolocate"], resolve_1, reject_1); }).then(__importStar)];
                     case 1:
-                        position = _a.sent();
-                        return [4 /*yield*/, places_1.findNearbyPlaces(position)];
+                        geo = _a.sent();
+                        return [4 /*yield*/, new Promise(function (resolve_2, reject_2) { require(["./places"], resolve_2, reject_2); }).then(__importStar)];
                     case 2:
                         places = _a.sent();
-                        features = addresToFeatures(places);
+                        return [4 /*yield*/, geo.deviceLocation()];
+                    case 3:
+                        position = _a.sent();
+                        return [4 /*yield*/, places.findNearbyPlaces(position)];
+                    case 4:
+                        addresses = _a.sent();
+                        features = addresToFeatures(addresses);
                         view.graphics.removeAll();
                         view.graphics.addMany(features);
                         view.goTo(view.graphics);

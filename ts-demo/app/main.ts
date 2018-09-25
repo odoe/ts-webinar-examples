@@ -6,9 +6,6 @@ import MapView from "esri/views/MapView";
 // widgets
 import Search from "esri/widgets/Search";
 
-import { deviceLocation } from "./geolocate";
-import { findNearbyPlaces } from "./places";
-
 import esri = __esri;
 
 function  addresToFeatures(items: esri.AddressCandidate[]) {
@@ -35,9 +32,16 @@ function  addresToFeatures(items: esri.AddressCandidate[]) {
 };
 
 async function findPlaces(view: MapView) {
-  const position = await deviceLocation();
-  const places = await findNearbyPlaces(position);
-  const features = addresToFeatures(places);
+  // dynamically import some helper modules
+  const geo = await import("./geolocate");
+  const places = await import("./places");
+
+  // use helper modules
+  const position = await geo.deviceLocation();
+  const addresses = await places.findNearbyPlaces(position);
+
+  // finish my operation
+  const features = addresToFeatures(addresses);
   view.graphics.removeAll();
   view.graphics.addMany(features);
   view.goTo(view.graphics);

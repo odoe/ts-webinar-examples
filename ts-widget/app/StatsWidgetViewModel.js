@@ -55,16 +55,17 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-define(["require", "exports", "esri/core/Accessor", "esri/core/watchUtils", "esri/core/accessorSupport/decorators"], function (require, exports, Accessor_1, watchUtils_1, decorators_1) {
+define(["require", "exports", "esri/core/Accessor", "esri/tasks/support/StatisticDefinition", "esri/core/watchUtils", "esri/core/accessorSupport/decorators"], function (require, exports, Accessor_1, StatisticDefinition_1, watchUtils_1, decorators_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     Accessor_1 = __importDefault(Accessor_1);
+    StatisticDefinition_1 = __importDefault(StatisticDefinition_1);
     var statDefinitions = [
-        {
+        new StatisticDefinition_1.default({
             onStatisticField: "1",
             outStatisticFieldName: "total",
             statisticType: "count"
-        }
+        })
     ];
     var StatsWidgetViewModel = /** @class */ (function (_super) {
         __extends(StatsWidgetViewModel, _super);
@@ -84,7 +85,7 @@ define(["require", "exports", "esri/core/Accessor", "esri/core/watchUtils", "esr
                     switch (_a.label) {
                         case 0:
                             _a.trys.push([0, 2, , 3]);
-                            return [4 /*yield*/, this.view.when().then()];
+                            return [4 /*yield*/, this.view.when()];
                         case 1:
                             _a.sent();
                             return [3 /*break*/, 3];

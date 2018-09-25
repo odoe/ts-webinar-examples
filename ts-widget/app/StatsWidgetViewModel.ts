@@ -47,7 +47,7 @@ class StatsWidgetViewModel extends declared(Accessor) {
 
   async initView() {
     try {
-      await this.view.when().then();
+      await this.view.when();
     }
     catch(error) {
       console.warn(error);

@@ -5,12 +5,6 @@ import MapView from "esri/views/MapView";
 // widgets
 import Search from "esri/widgets/Search";
 
-// const layer = new FeatureLayer({
-//   portalItem: {
-//     id: "eed7f427d93440d19c3a494201471d34"
-//   }
-// });
-
 const layer = new FeatureLayer({
   portalItem: {
     id: "eed7f427d93440d19c3a494201471d34"
