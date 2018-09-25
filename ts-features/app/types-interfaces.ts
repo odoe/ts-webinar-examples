@@ -15,6 +15,8 @@ type FeatureItem = {
   layerView: FeatureLayerView
 };
 
+// interface
+
 function runAllQueries(items: SearchItem[]) {
   const ids: number[] = [];
   const tasks = items.map(item => {
